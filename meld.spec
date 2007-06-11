@@ -1,6 +1,6 @@
 %define name	meld
-%define version 1.1.4
-%define release %mkrel 3
+%define version 1.1.5
+%define release %mkrel 1
 
 Summary:	Meld is a GNOME 2 visual diff and merge tool
 Name:		%{name}
@@ -52,19 +52,8 @@ install -D -m 644 %{SOURCE1} ${RPM_BUILD_ROOT}%{_miconsdir}/%{name}.png
 install -D -m 644 %{SOURCE2} ${RPM_BUILD_ROOT}%{_iconsdir}/%{name}.png
 install -D -m 644 %{SOURCE3} ${RPM_BUILD_ROOT}%{_liconsdir}/%{name}.png
 
-# Install menu entry
-install -d ${RPM_BUILD_ROOT}%{_menudir}
-cat << EOF > ${RPM_BUILD_ROOT}%{_menudir}/%{name}
-?package(%{name}): needs="x11" \
-		   section="System/File Tools" \
-		   title="Meld" \
-		   longtitle="%{summary}" \
-		   icon="%{name}.png" \
-		   command="%{name}" xdg="true"
-EOF
 desktop-file-install --vendor="" \
   --remove-category="Application" \
-  --add-category="X-MandrivaLinux-System-FileTools" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 
@@ -91,7 +80,6 @@ rm -rf ${RPM_BUILD_ROOT}
 %dir %{_datadir}/omf/%name
 %{_datadir}/omf/%name/meld-C.omf
 %{_datadir}/pixmaps/*
-%{_menudir}/%{name}
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
