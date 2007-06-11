@@ -78,7 +78,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_datadir}/application-registry/*
 %{_datadir}/applications/*
 %dir %{_datadir}/omf/%name
-%{_datadir}/omf/%name/meld-C.omf
+%{_datadir}/omf/%name/meld-*.omf
 %{_datadir}/pixmaps/*
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
