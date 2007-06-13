@@ -1,5 +1,5 @@
 %define name	meld
-%define version 1.1.5
+%define version 1.1.5.1
 %define release %mkrel 1
 
 Summary:	Meld is a GNOME 2 visual diff and merge tool
