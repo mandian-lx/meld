@@ -10,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Source1:   	%{name}16.png
 Source2:   	%{name}32.png
 Source3:   	%{name}48.png
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 License:	GPL
 URL:		http://meld.sourceforge.net/
 Group:		File tools
