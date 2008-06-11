@@ -1,6 +1,6 @@
 %define name	meld
 %define version 1.1.5.1
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary:	GNOME 2 visual diff and merge tool
 Name:		%{name}
@@ -23,6 +23,7 @@ Requires:	gnome-python
 Requires:	gnome-python-canvas
 Requires:	gnome-python-gconf
 Requires:	gnome-python-gnomevfs
+Requires:	patch
 BuildArch:	noarch
 Requires(post): scrollkeeper >= 0.3
 Requires(postun): scrollkeeper >= 0.3
