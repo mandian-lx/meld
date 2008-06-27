@@ -1,6 +1,6 @@
 %define name	meld
-%define version 1.1.5.1
-%define release %mkrel 3
+%define version 1.2
+%define release %mkrel 1
 
 Summary:	GNOME 2 visual diff and merge tool
 Name:		%{name}
@@ -10,8 +10,9 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Source1:   	%{name}16.png
 Source2:   	%{name}32.png
 Source3:   	%{name}48.png
+Patch: meld-1.2-make-install.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-License:	GPL
+License:	GPLv2+
 URL:		http://meld.sourceforge.net/
 Group:		File tools
 BuildRequires: scrollkeeper
@@ -38,6 +39,7 @@ features a tabbed interface that allows you to open many diffs at once.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %make prefix=%_prefix libdir=%_datadir
@@ -67,9 +69,6 @@ rm -rf ${RPM_BUILD_ROOT}
 %post
 %{update_menus}
 %update_scrollkeeper
-%endif
-
-%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %clean_scrollkeeper
@@ -77,7 +76,7 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc AUTHORS README* changelog COPYING
+%doc AUTHORS changelog COPYING 
 %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/application-registry/*
