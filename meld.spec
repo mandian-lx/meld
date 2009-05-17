@@ -1,5 +1,5 @@
 %define name	meld
-%define version 1.2.1
+%define version 1.3.0
 %define release %mkrel 1
 
 Summary:	GNOME 2 visual diff and merge tool
