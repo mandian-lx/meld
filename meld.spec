@@ -1,6 +1,6 @@
 %define name	meld
 %define version 1.3.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	GNOME 2 visual diff and merge tool
 Name:		%{name}
@@ -11,6 +11,7 @@ Source1:   	%{name}16.png
 Source2:   	%{name}32.png
 Source3:   	%{name}48.png
 Patch: meld-1.2-make-install.patch
+Patch1: meld-fix-file-opening.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 License:	GPLv2+
 URL:		http://meld.sourceforge.net/
@@ -40,6 +41,7 @@ features a tabbed interface that allows you to open many diffs at once.
 %prep
 %setup -q
 %patch -p1
+%patch1 -p1
 
 %build
 %make prefix=%_prefix libdir=%_datadir
