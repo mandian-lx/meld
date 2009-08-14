@@ -1,17 +1,13 @@
 %define name	meld
-%define version 1.3.0
-%define release %mkrel 2
+%define version 1.3.1
+%define release %mkrel 1
 
 Summary:	GNOME 2 visual diff and merge tool
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-Source1:   	%{name}16.png
-Source2:   	%{name}32.png
-Source3:   	%{name}48.png
 Patch: meld-1.2-make-install.patch
-Patch1: meld-fix-file-opening.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 License:	GPLv2+
 URL:		http://meld.sourceforge.net/
@@ -41,7 +37,6 @@ features a tabbed interface that allows you to open many diffs at once.
 %prep
 %setup -q
 %patch -p1
-%patch1 -p1
 
 %build
 %make prefix=%_prefix libdir=%_datadir
@@ -53,9 +48,9 @@ rm -rf ${RPM_BUILD_ROOT} %name.lang
 %find_lang %name --with-gnome
 
 # Icons
-install -D -m 644 %{SOURCE1} ${RPM_BUILD_ROOT}%{_miconsdir}/%{name}.png
-install -D -m 644 %{SOURCE2} ${RPM_BUILD_ROOT}%{_iconsdir}/%{name}.png
-install -D -m 644 %{SOURCE3} ${RPM_BUILD_ROOT}%{_liconsdir}/%{name}.png
+install -D -m 644 glade2/pixmaps/16x16/meld.png ${RPM_BUILD_ROOT}%{_miconsdir}/%{name}.png
+install -D -m 644 glade2/pixmaps/32x32/meld.png ${RPM_BUILD_ROOT}%{_iconsdir}/%{name}.png
+install -D -m 644 glade2/pixmaps/48x48/meld.png ${RPM_BUILD_ROOT}%{_liconsdir}/%{name}.png
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
@@ -78,10 +73,9 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc AUTHORS changelog COPYING 
+%doc AUTHORS MAINTAINERS NEWS
 %{_bindir}/%{name}
 %{_datadir}/%{name}
-%{_datadir}/application-registry/*
 %{_datadir}/applications/*
 %dir %{_datadir}/omf/%name
 %{_datadir}/omf/%name/meld-*.omf
