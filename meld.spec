@@ -1,5 +1,5 @@
 %define name	meld
-%define version 1.3.2
+%define version 1.3.3
 %define release %mkrel 1
 
 Summary:	GNOME 2 visual diff and merge tool
@@ -66,7 +66,7 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc AUTHORS MAINTAINERS NEWS
+%doc AUTHORS NEWS
 %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/applications/*
