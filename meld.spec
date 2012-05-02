@@ -1,13 +1,12 @@
 %define name	meld
-%define version 1.4.0
-%define release %mkrel 1
+%define version 1.6.0
+%define release 1
 
 Summary:	GNOME 2 visual diff and merge tool
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.xz
 License:	GPLv2+
 URL:		http://meld.sourceforge.net/
 Group:		File tools
@@ -52,25 +51,9 @@ desktop-file-install --vendor="" \
 
 rm -rf %buildroot/usr/var/lib/scrollkeeper
 
-%clean
-rm -rf ${RPM_BUILD_ROOT}
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%update_scrollkeeper
-%postun
-%{clean_menus}
-%clean_scrollkeeper
-%endif
-
 %files -f %name.lang
-%defattr(-,root,root)
-%doc AUTHORS NEWS
+%doc  NEWS
 %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/applications/*
-%dir %{_datadir}/omf/%name
-%{_datadir}/omf/%name/meld-*.omf
-%{_datadir}/pixmaps/*
 %_datadir/icons/hicolor/*/apps/meld.*
