@@ -1,5 +1,5 @@
 %define name	meld
-%define version 1.6.0
+%define version 1.7.0
 %define release 1
 
 Summary:	GNOME 2 visual diff and merge tool
@@ -46,7 +46,7 @@ rm -rf ${RPM_BUILD_ROOT} %name.lang
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 
 rm -rf %buildroot/usr/var/lib/scrollkeeper
