@@ -1,19 +1,15 @@
-%define name	meld
-%define version 1.7.0
-%define release 1
-
 Summary:	GNOME 2 visual diff and merge tool
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		meld
+Version:	1.7.5
+Release:	1
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.xz
 License:	GPLv2+
 URL:		http://meld.sourceforge.net/
 Group:		File tools
-BuildRequires: scrollkeeper
-BuildRequires: python-devel
-BuildRequires: intltool
-BuildRequires: desktop-file-utils
+BuildRequires:	scrollkeeper
+BuildRequires:	python-devel
+BuildRequires:	intltool
+BuildRequires:desktop-file-utils
 Requires:	pygtk2.0-libglade
 Requires:	gnome-python
 Requires:	gnome-python-canvas
@@ -39,7 +35,7 @@ features a tabbed interface that allows you to open many diffs at once.
 %make prefix=%_prefix libdir=%_datadir
 
 %install
-rm -rf ${RPM_BUILD_ROOT} %name.lang
+rm -rf %{buildroot} %name.lang
 %makeinstall_std prefix=%_prefix libdir=%_datadir
 
 %find_lang %name --with-gnome
@@ -57,3 +53,6 @@ rm -rf %buildroot/usr/var/lib/scrollkeeper
 %{_datadir}/%{name}
 %{_datadir}/applications/*
 %_datadir/icons/hicolor/*/apps/meld.*
+%{_datadir}/icons/HighContrast/scalable/apps/%{name}.svg
+%{_datadir}/mime/packages/%{name}.xml
+
