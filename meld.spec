@@ -1,6 +1,6 @@
 Summary:	GNOME 2 visual diff and merge tool
 Name:		meld
-Version:	1.7.5
+Version:	1.8.4
 Release:	1
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.xz
 License:	GPLv2+
@@ -10,11 +10,9 @@ BuildRequires:	scrollkeeper
 BuildRequires:	python-devel
 BuildRequires:	intltool
 BuildRequires:desktop-file-utils
-Requires:	pygtk2.0-libglade
-Requires:	gnome-python
-Requires:	gnome-python-canvas
-Requires:	gnome-python-gconf
-Requires:	gnome-python-gnomevfs
+Requires:	pygtk2.0
+Requires:	python-gtksourceview
+Requires:	python-gobject
 Requires:	patch
 BuildArch:	noarch
 Requires(post): scrollkeeper >= 0.3
@@ -55,4 +53,4 @@ rm -rf %buildroot/usr/var/lib/scrollkeeper
 %_datadir/icons/hicolor/*/apps/meld.*
 %{_datadir}/icons/HighContrast/scalable/apps/%{name}.svg
 %{_datadir}/mime/packages/%{name}.xml
-
+%{_datadir}/appdata/meld.appdata.xml
