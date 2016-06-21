@@ -1,7 +1,7 @@
 %define ver    3.16
 %define micro  1
 
-Summary:    GNOME 3 visual diff and merge tool
+Summary:    A visual diff and merge tool targeted at developers
 Name:       meld
 Version:    %{ver}.%{micro}
 Release:    1
@@ -22,11 +22,13 @@ Requires:  python2-gtksourceview
 Requires:  python2-gobject
 
 %description
-Meld is a GNOME 2 visual diff and merge tool. It integrates especially well
-with CVS. The diff viewer lets you edit files in place (diffs update
-dynamically), and a middle column shows detailed changes and allows merges.
-The margins show location of changes for easy navigation, and it also
-features a tabbed interface that allows you to open many diffs at once.
+Meld is a visual diff and merge tool targeted at developers. Meld helps you
+compare files, directories, and version controlled projects. It provides
+two- and three-way comparison of both files and directories, and supports
+many version control systems including Git, Mercurial, Bazaar and Subversion.
+
+Meld helps you review code changes, understand patches, and makes enormous
+merge conflicts slightly less painful.
 
 %files -f FILELIST -f %name.lang
 %doc README
