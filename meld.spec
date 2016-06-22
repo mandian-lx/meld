@@ -1,11 +1,8 @@
-%define ver    3.16
-%define micro  1
-
 Summary:    A visual diff and merge tool targeted at developers
 Name:       meld
-Version:    %{ver}.%{micro}
+Version:    3.16.1
 Release:    1
-Source0:    https://download.gnome.org/sources/%{name}/%{ver}/%{name}-%{version}.tar.xz
+Source0:    https://download.gnome.org/sources/%{name}/%{version}/%{name}-%{version}.tar.xz
 License:    GPLv2+
 URL:        http://meldmerge.org/
 Group:      File tools
@@ -18,7 +15,6 @@ BuildRequires:  libxml2-utils
 BuildRequires:  desktop-file-utils
 
 Requires:  pygtk2.0
-Requires:  python2
 Requires:  python2-gtksourceview
 Requires:  python2-gobject
 
@@ -32,9 +28,7 @@ Meld helps you review code changes, understand patches, and makes enormous
 merge conflicts slightly less painful.
 
 %files -f %name.lang -f FILELIST
-%doc README
-%doc NEWS
-%doc COPYING
+%doc README NEWS COPYING
 
 %prep
 %setup -q
@@ -47,10 +41,10 @@ merge conflicts slightly less painful.
 
 # remove duplicates (by rpm5 point of view) from FILELIST
 # (see http://wiki.rosalab.ru/ru/index.php/Python_policy#Automated_setup)
-%__sed -i -e /pyc$/d FILELIST
+sed -i -e /pyc$/d FILELIST
 
 # manpage uses xz compression
-%__sed -i -e 's|%{name}.1|%{name}.1.xz|' FILELIST
+sed -i -e 's|%{name}.1|%{name}.1.xz|' FILELIST
 
 # .desktop
 desktop-file-install \
@@ -62,14 +56,3 @@ desktop-file-install \
 # locales
 %find_lang %{name} --with-gnome
 
-%post
-/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-%postun
-if [ $1 -eq 0 ] ; then
-    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-%posttrans
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
