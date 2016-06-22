@@ -14,6 +14,7 @@ BuildArch:  noarch
 BuildRequires:  pkgconfig(python2)
 BuildRequires:  intltool
 BuildRequires:  itstool
+BuildRequires:  libxml2-utils
 BuildRequires:  desktop-file-utils
 
 Requires:  pygtk2.0
