@@ -31,7 +31,7 @@ many version control systems including Git, Mercurial, Bazaar and Subversion.
 Meld helps you review code changes, understand patches, and makes enormous
 merge conflicts slightly less painful.
 
-%files -f FILELIST -f %name.lang
+%files -f %name.lang -f FILELIST
 %doc README
 %doc NEWS
 %doc COPYING
