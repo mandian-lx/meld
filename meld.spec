@@ -1,8 +1,10 @@
+%define shortver 3.16
+
 Summary:    A visual diff and merge tool targeted at developers
 Name:       meld
-Version:    3.16.3
+Version:    %{shortver}.4
 Release:    1
-Source0:    https://download.gnome.org/sources/%{name}/3.16/%{name}-%{version}.tar.xz
+Source0:    https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
 License:    GPLv2+
 URL:        http://meldmerge.org/
 Group:      File tools
@@ -17,6 +19,7 @@ BuildRequires:  desktop-file-utils
 Requires:  pygtk2.0
 Requires:  python2-gtksourceview
 Requires:  python2-gobject
+Requires:  python2-cairo
 
 %description
 Meld is a visual diff and merge tool targeted at developers. Meld helps you
