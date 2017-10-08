@@ -1,8 +1,8 @@
-%define shortver 3.16
+%define shortver 3.18
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	%{shortver}.4
+Version:	%{shortver}.0
 Release:	1
 Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
 License:	GPLv2+

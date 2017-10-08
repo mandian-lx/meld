@@ -4,5 +4,6 @@ removed_sources:
   meld-1.8.4.tar.xz: 4d0b87a367c0a0ee8bb0403cfb366ebe92b10418
   meld-3.16.1.tar.xz: fe003ba49433a735713bf93f06994e480b45384d
   meld-3.16.3.tar.xz: 9e5b97b0ec956575ac9e550408805b3ad97f7a31
-sources:
   meld-3.16.4.tar.xz: 5953d6ebaefdff9eecf2a94a9c7583dd743a73ee
+sources:
+  meld-3.18.0.tar.xz: ead88297978d6720d66b30d533f35575a748401c
