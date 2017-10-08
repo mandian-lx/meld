@@ -10,18 +10,18 @@ URL:		http://meldmerge.org/
 Group:		File tools
 BuildArch:	noarch
 
-BuildRequires:	pkgconfig(python2)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 
-Requires:	pygtk2.0
-Requires:	python2-dbus
-Requires:	python2-gtksourceview
-Requires:	python2-gobject
-Requires:	python2-cairo
-Requires:	python2-gi-cairo
+#Requires:	pygtk2.0
+Requires:	python-dbus
+Requires:	python-gtksourceview
+Requires:	python-gobject
+Requires:	python-cairo
+Requires:	python-gi-cairo
 Requires:	%{name}-schemas = %{version}-%{release}
 
 Suggests:	patch
@@ -39,8 +39,7 @@ merge conflicts slightly less painful.
 %{_bindir}/%{name}
 %dir %{py3_puresitedir}/%{name}
 %{py3_puresitedir}/%{name}/*
-%dir %{py3_puresitedir}/%{name}-%{version}-py3.?.egg-info
-%{py3_puresitedir}/%{name}-%{version}-py3.?.egg-info/*
+%{py3_puresitedir}/%{name}-%{version}-py3.?.egg-info
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
 %{_datadir}/appdata/%{name}.appdata.xml
@@ -59,8 +58,6 @@ Summary:	Gsettings schema files for %{name}
 License:	LGPLv2+
 Group:		File tools
 BuildArch:	noarch
-
-%rename		%{name}-schemas = %{version}-%{release}
 
 %description schemas
 This package provides the gsettings schemas for %{name}.
