@@ -1,25 +1,29 @@
-%define shortver 3.16
+%define shortver 3.18
 
-Summary:    A visual diff and merge tool targeted at developers
-Name:       meld
-Version:    %{shortver}.4
-Release:    1
-Source0:    https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
-License:    GPLv2+
-URL:        http://meldmerge.org/
-Group:      File tools
-BuildArch:  noarch
+Summary:	A visual diff and merge tool targeted at developers
+Name:		meld
+Version:	%{shortver}.0
+Release:	1
+Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
+License:	GPLv2+
+URL:		http://meldmerge.org/
+Group:		File tools
+BuildArch:	noarch
 
-BuildRequires:  pkgconfig(python2)
-BuildRequires:  intltool
-BuildRequires:  itstool
-BuildRequires:  libxml2-utils
-BuildRequires:  desktop-file-utils
+BuildRequires:	pkgconfig(python2)
+BuildRequires:	intltool
+BuildRequires:	itstool
+BuildRequires:	libxml2-utils
+BuildRequires:	desktop-file-utils
 
-Requires:  pygtk2.0
-Requires:  python2-gtksourceview
-Requires:  python2-gobject
-Requires:  python2-cairo
+Requires:	pygtk2.0
+Requires:	python2-dbus
+Requires:	python2-gtksourceview
+Requires:	python2-gobject
+Requires:	python2-cairo
+Requires:	python2-gi-cairo
+
+Suggests:	patch
 
 %description
 Meld is a visual diff and merge tool targeted at developers. Meld helps you
@@ -51,10 +55,10 @@ sed -i -e 's|%{name}.1|%{name}.1.xz|' FILELIST
 
 # .desktop
 desktop-file-install \
-  --vendor="" \
-  --remove-category="Application" \
-  --dir %{buildroot}%{_datadir}/applications \
-  %{buildroot}%{_datadir}/applications/*
+	-vendor="" \
+	--remove-category="Application" \
+	--dir %{buildroot}%{_datadir}/applications \
+	%{buildroot}%{_datadir}/applications/*
 
 # locales
 %find_lang %{name} --with-gnome
