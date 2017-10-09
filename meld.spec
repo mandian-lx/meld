@@ -16,15 +16,16 @@ BuildRequires:	itstool
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 
-#Requires:	pygtk2.0
+Requires:	dbus-x11
+Requires:	glib2
+Requires:	%{_lib}gtk3_0
+Requires:	gtksourceview3
 Requires:	python-dbus
-Requires:	python-gtksourceview
 Requires:	python-gobject
 Requires:	python-cairo
 Requires:	python-gi-cairo
+Requires:	patch
 Requires:	%{name}-schemas = %{version}-%{release}
-
-Suggests:	patch
 
 %description
 Meld is a visual diff and merge tool targeted at developers. Meld helps you
@@ -55,7 +56,7 @@ merge conflicts slightly less painful.
 
 %package schemas
 Summary:	Gsettings schema files for %{name}
-License:	LGPLv2+
+License:	GPLv2+
 Group:		File tools
 BuildArch:	noarch
 
